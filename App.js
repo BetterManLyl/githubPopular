@@ -10,7 +10,8 @@ import {
     StyleSheet,
     Text,
     View,
-    Image
+    Image,
+    Navigator,
 
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator'
@@ -26,8 +27,7 @@ export default class App extends Component<{}> {
     constructor() {
         super()
         this.state = {
-            selectedTab: 'home'
-
+            selectedTab: 'tb_popular'
         }
     }
 
@@ -35,34 +35,67 @@ export default class App extends Component<{}> {
         return (
 
             <View style={styles.container}>
-               <Image source={require('./images/ic_trending.png')}/>
+                {/*<Image source={require('./images/ic_trending.png')}/>*/}
 
                 {/*<TabNavigator>*/}
                     {/*<TabNavigator.Item*/}
-                        {/*selected={this.state.selectedTab === 'home'}*/}
-                        {/*title='home'*/}
-                        {/*renderIcon={() => <Image source={require('./images/ic_polular.png')}/>}*/}
-                    {/**/}
-                        {/*renderSelectedIcon={() => <Image source={require('./images/ic_polular.png')}/>}*/}
-                        {/*badgeText='1'*/}
+                        {/*selected={this.state.selectedTab === 'tb_popular'}*/}
+                        {/*title='最热'*/}
+                        {/*//设置选中字体的颜色*/}
+                        {/*selectedTitleStyle={{color: 'red'}}*/}
+                        {/*renderIcon={() => <Image style={styles.image} source={require('./images/ic_polular.png')}/>}*/}
+                        {/*//tintColor:设置图片选中后的颜色*/}
+                        {/*renderSelectedIcon={() => <Image style={[styles.image, {tintColor: 'red'}]}*/}
+                                                         {/*source={require('./images/ic_polular.png')}/>}*/}
+                        {/*badgeText='15'*/}
                         {/*onPress={() => this.setState({*/}
-                            {/*selectedTab: 'home'*/}
+                            {/*selectedTab: 'tb_popular'*/}
                         {/*})}*/}
                     {/*>*/}
                         {/*<View style={styles.pag1}></View>*/}
                     {/*</TabNavigator.Item>*/}
 
                     {/*<TabNavigator.Item*/}
-                        {/*selected={this.state.selectedTab === 'profile'}*/}
-                        {/*title='profile'*/}
-                        {/*renderIcon={() => <Image source={require('./images/ic_trending.png.png')}/>}*/}
-                        {/*renderSelectedIcon={() => <Image source={require('./images/ic_trending.png')}/>}*/}
-                        {/*badgeText='1'*/}
+                        {/*selected={this.state.selectedTab === 'tb_trending'}*/}
+                        {/*selectedTitleStyle={{color: 'yellow'}}*/}
+                        {/*title='趋势'*/}
+                        {/*renderIcon={() => <Image style={styles.image} source={require('./images/ic_trending.png')}/>}*/}
+                        {/*renderSelectedIcon={() => <Image style={[styles.image, {tintColor: 'yellow'}]}*/}
+                                                         {/*source={require('./images/ic_trending.png')}/>}*/}
+                        {/*badgeText='10'*/}
                         {/*onPress={() => this.setState({*/}
-                            {/*selectedTab: 'profile'*/}
+                            {/*selectedTab: 'tb_trending'*/}
                         {/*})}*/}
                     {/*>*/}
-                        {/*<View style={styles.pag2}></View>*/}
+                        {/*<View style={styles.pag2}/>*/}
+                    {/*</TabNavigator.Item>*/}
+                    {/*<TabNavigator.Item*/}
+                        {/*selected={this.state.selectedTab === 'tb_favorite'}*/}
+                        {/*selectedTitleStyle={{color: 'yellow'}}*/}
+                        {/*title='收藏'*/}
+                        {/*renderIcon={() => <Image style={styles.image} source={require('./images/ic_trending.png')}/>}*/}
+                        {/*renderSelectedIcon={() => <Image style={[styles.image, {tintColor: 'yellow'}]}*/}
+                                                         {/*source={require('./images/ic_trending.png')}/>}*/}
+                        {/*badgeText='10'*/}
+                        {/*onPress={() => this.setState({*/}
+                            {/*selectedTab: 'tb_favorite'*/}
+                        {/*})}*/}
+                    {/*>*/}
+                        {/*<View style={styles.pag2}/>*/}
+                    {/*</TabNavigator.Item>*/}
+                    {/*<TabNavigator.Item*/}
+                        {/*selected={this.state.selectedTab === 'tb_my'}*/}
+                        {/*selectedTitleStyle={{color: 'yellow'}}*/}
+                        {/*title='我的'*/}
+                        {/*renderIcon={() => <Image style={styles.image} source={require('./images/ic_trending.png')}/>}*/}
+                        {/*renderSelectedIcon={() => <Image style={[styles.image, {tintColor: 'yellow'}]}*/}
+                                                         {/*source={require('./images/ic_trending.png')}/>}*/}
+                        {/*badgeText='10'*/}
+                        {/*onPress={() => this.setState({*/}
+                            {/*selectedTab: 'tb_my'*/}
+                        {/*})}*/}
+                    {/*>*/}
+                        {/*<View style={styles.pag2}/>*/}
                     {/*</TabNavigator.Item>*/}
                 {/*</TabNavigator>*/}
 
@@ -72,7 +105,11 @@ export default class App extends Component<{}> {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    image: {
+        width: 22,
+        height: 22,
+
+    }, container: {
         flex: 1,
         backgroundColor: '#F5FCFF',
     },
